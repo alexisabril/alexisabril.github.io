@@ -8,6 +8,7 @@ body {
 	flex-direction: column;
 	align-content: stretch;
 	align-items: stretch;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .container {
@@ -20,6 +21,36 @@ body {
 	a:hover {
 		text-decoration: none;
 	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.list-inline {
+  margin-left: -5px;
+	padding-left: 0;
+
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: darken(#337ab7, 15%);
+    text-decoration: none;
+  }
+}
+
+p {
+	margin: 0 0 10px;
 }
 
 @font-face {

@@ -2,11 +2,12 @@
   "name": "alexisabril.github.io",
   "version": "0.0.1",
   "scripts": {
-    "build": "lessc index.less | cat node_modules/bootstrap/dist/css/bootstrap.min.css - | uglifycss > index.css"
+    "build": "./bin/cachebust && lessc index.less | uglifycss > index.css"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.7",
     "less": "^2.7.1",
+    "shortid": "^2.2.8",
     "uglifycss": "0.0.21"
-  }
+  },
+  "dependencies": {}
 }
