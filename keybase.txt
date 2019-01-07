@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/alexisabril
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://alexisabril.com
+  * I am alexisabril (https://keybase.io/alexisabril) on keybase.
+  * I have a public key ASCHHu1XDDtyAIOzTV_qd-e0WVERCg-_xWsG7QAB4eiufwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120133b1a01d4086669cb05162c4d89ebeca04b036678884215458b6a9c0d71b4770a",
+      "host": "keybase.io",
+      "kid": "0120871eed570c3b720083b34d5fea77e7b45951110a0fbfc56b06ed0001e1e8ae7f0a",
+      "uid": "53d3b71e34b5ba9f4b68c3bbe6622719",
+      "username": "alexisabril"
+    },
+    "merkle_root": {
+      "ctime": 1546885446,
+      "hash": "514fc51f61bfb882302fa3df9a4967c48a96c61b519765e6418cc65a2407376245b0abdd61b78da077cc102dcaeb6eb3d52c6291c22a0d7cbd690f5a9a18c4cd",
+      "hash_meta": "57348cea306eaae86bea52f3e469e3fda8f70148a561f5fa70323c73f7fb2078",
+      "seqno": 4246478
+    },
+    "service": {
+      "entropy": "zPYJiDEuHuFkz+f6OZO4J1kV",
+      "hostname": "alexisabril.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "2.12.6"
+  },
+  "ctime": 1546885460,
+  "expire_in": 504576000,
+  "prev": "455cec2ed285063c6791f8717c3f3d85f7473b3b07549ba0a5f523ec8d6b53db",
+  "seqno": 21,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEghx7tVww7cgCDs01f6nfntFlREQoPv8VrBu0AAeHorn8Kp3BheWxvYWTESpcCFcQgRVzsLtKFBjxnkfhxfD89hfdHOzsHVJugpfUj7I1rU9vEIITDD5HhFwkKDSMWk/NVGSeBWXA4jvp76jy8EAAqyD/TAgHCo3NpZ8RAK5s6WnHXkkA+Nt9WiVfpX9nJHUhpR+U5UW9WTkhDrzwwC6IPJtxZ7Hohm3KXrLifAfbmcdXtflazUKt+QgbsBqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBxekBqf7NzrVPwCAZeyLaZ/3pmnmVYs68n4qyC0fDX3o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/alexisabril
+
+==================================================================
