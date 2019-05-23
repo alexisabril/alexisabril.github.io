@@ -8,6 +8,7 @@ const template = path.join(__dirname, '../src/index.html');
 
 let html = fs.readFileSync(template).toString();
 html = html.replace(/{guid}/g, shortid());
+html = html.replace(/{timestamp}/g, new Date().toISOString());
 
 const output = path.join(__dirname, '../index.html');
 
