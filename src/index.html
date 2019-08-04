@@ -1,8 +1,9 @@
 <!doctype html>
-<html>
+<html lang="en-US">
 	<head>
 		<title>Hello.</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="A few links to learn more about me.">
 		<meta property="og:url" content="https://alexisabril.com/">
 		<meta property="og:title" content="Alexis Abril | JS Developer">
 		<meta property="og:description" content="Hi. I'm Alexis Abril and here's some stuff about me.">
@@ -16,7 +17,54 @@
 		<meta name="twitter:description" content="Hi. I'm Alexis Abril and here's some stuff about me.">
 		<meta name="twitter:image" content="https://alexisabril.com/images/octocat.png?v={guid}">
 
-		<script>
+		<link rel="canonical" href="https://alexisabril.com"/>
+		<link media="screen" href="index.css?v={guid}" rel="stylesheet"/>
+		<link rel="icon" href="/favicon.ico?v={guid}" />
+		<link rel="preconnect" href="https://www.googletagmanager.com"/>
+		<link rel="preconnect" href="https://www.google-analytics.com"/>
+	</head>
+
+	<body>
+		<main class="container">
+			<div class="text-center">
+				<div>
+					<img src="/images/octocat.png" alt="image of octocat" />
+				</div>
+				<div>
+					<p>Hello.</p>
+
+					<ul class="list-inline">
+						<li>
+							<a href="https://github.com/alexisabril" aria-label="Visit Alexis Abril on GitHub">
+								<span class="icon-github"></span>
+							</a>
+						</li>
+						<li>
+							<a href="https://stackoverflow.com/story/alexisabril" aria-label="Visit Alexis Abril on StackOverflow">
+								<span class="icon-stackoverflow"></span>
+							</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/alexisabril" aria-label="Visit Alexis Abril on Twitter">
+								<span class="icon-twitter"></span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/in/alexis-abril" aria-label="Visit Alexis Abril on LinkedIn">
+								<span class="icon-linkedin2"></span>
+							</a>
+						</li>
+						<li>
+							<a href="mailto:me@alexisabril.com" aria-label="Email Alexis Abril">
+								<span class="icon-envelop"></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</main>
+
+		<script async>
 			if(/alexisabril\.com/.test(window.location.host) && window.location.protocol === 'http:') {
 				window.location.protocol = 'https';
 			}
@@ -24,56 +72,12 @@
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-37131782-1"></script>
-		<script>
+		<script async>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 
 			gtag('config', 'UA-37131782-1');
 		</script>
-
-		<link rel="canonical" href="https://alexisabril.com"/>
-		<link href="index.css?v={guid}" rel="stylesheet"/>
-		<link rel="icon" href="/favicon.ico?v={guid}" />
-	</head>
-
-	<body>
-		<div class="text-center container">
-			<div>
-				<img src="/images/octocat.png" />
-			</div>
-			<div>
-				<p>Hello.</p>
-
-				<ul class="list-inline">
-					<li>
-						<a href="https://github.com/alexisabril">
-							<span class="icon-github"></span>
-						</a>
-					</li>
-					<li>
-						<a href="https://stackoverflow.com/story/alexisabril">
-							<span class="icon-stackoverflow"></span>
-						</a>
-					</li>
-					<li>
-						<a href="https://twitter.com/alexisabril">
-							<span class="icon-twitter"></span>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.linkedin.com/in/alexis-abril">
-							<span class="icon-linkedin2"></span>
-						</a>
-					</li>
-					<li>
-						<a href="mailto:me@alexisabril.com">
-							<span class="icon-envelop"></span>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-
 	</body>
 </html>
