@@ -5,7 +5,7 @@
     "build": "./bin/cachebust && lessc index.less | uglifycss > index.css"
   },
   "devDependencies": {
-    "less": "^2.7.1",
+    "less": "^3.11.3",
     "shortid": "^2.2.8",
     "uglifycss": "0.0.21"
   },
