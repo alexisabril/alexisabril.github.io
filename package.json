@@ -1,13 +1,44 @@
 {
   "name": "alexisabril.github.io",
-  "version": "0.0.1",
+  "type": "module",
+  "version": "0.0.2",
   "scripts": {
-    "build": "./bin/cachebust && lessc index.less | uglifycss > index.css"
+    "dev": "astro dev",
+    "build": "astro check && astro build && cp -R dist/* .",
+    "preview": "astro preview",
+    "profile": "node src/profile.js",
+    "summary": "node -r dotenv/config src/summary.js"
   },
   "devDependencies": {
-    "less": "^3.11.3",
-    "shortid": "^2.2.8",
-    "uglifycss": "0.0.21"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^5.1.2",
+    "astro": "^4.16.16",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.5",
+    "less": "^4.2.1",
+    "openai": "^4.73.1",
+    "pdfjs-dist": "^4.8.69",
+    "prettier": "^3.4.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.7.2"
   },
-  "dependencies": {}
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "useTabs": false,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "plugins": [
+      "prettier-plugin-astro"
+    ],
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ]
+  }
 }

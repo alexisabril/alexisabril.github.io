@@ -1,0 +1,17 @@
+---
+interface Props {
+	tag?: string
+	img?: string
+	link?: string
+	icon?: string
+}
+
+const {
+	tag = '@alexisabril',
+	link = 'https://alexisabril.com',
+	icon = 'https://placehold.co/400'
+} = Astro.props
+---
+<a href={link} rel="noopener noreferrer" class="m-6">
+	<img src={icon} class="p-1 w-20 h-20 sm:w-10 sm:h-10" alt={tag} />
+</a>

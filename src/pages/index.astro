@@ -1,0 +1,134 @@
+---
+import { format } from 'date-fns'
+
+import Social from '../components/social.astro'
+import { Content as AISummary } from '../../data/summary.md'
+
+const model = import.meta.env.OPENAI_MODEL
+const timestamp = new Date().toISOString()
+---
+
+<html lang="en">
+  <head>
+    <title>Hello.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A few links to learn more about me." />
+    <meta property="og:url" content="https://alexisabril.com/" />
+    <meta property="og:title" content="Alexis Abril | JS Developer" />
+    <meta
+      property="og:description"
+      content="Hi. I'm Alexis Abril and here's some stuff about me."
+    />
+    <meta
+      property="og:image"
+      content={`https://alexisabril.com/images/octocat.png?v=${timestamp}`}
+    />
+    <meta property="og:updated_time" content={timestamp} />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@alexisabril" />
+    <meta name="twitter:title" content="Alexis Abril | JS Developer" />
+    <meta
+      name="twitter:description"
+      content="Hi. I'm Alexis Abril and here's some stuff about me."
+    />
+    <meta
+      name="twitter:image"
+      content={`https://alexisabril.com/images/octocat.png?v=${timestamp}`}
+    />
+    <meta charset="UTF-8" />
+
+    <link rel="canonical" href="https://alexisabril.com" />
+    <link rel="icon" href={`/favicon.svg?v=${timestamp}`} />
+
+    <style is:global lang="less">
+      body {
+        background-color: #e0e1dd;
+        color: #415a77;
+      }
+
+      h1 {
+        @apply text-4xl;
+        @apply my-5;
+      }
+
+      h2 {
+        @apply text-3xl;
+        @apply my-4;
+      }
+
+      h3 {
+        @apply text-2xl;
+        @apply my-3;
+      }
+
+      p {
+        @apply my-2;
+      }
+    </style>
+  </head>
+
+  <body class="flex justify-center">
+    <div class="flex flex-wrap w-5/6">
+      <div class="flex w-full justify-center">
+        <img
+          class="w-3/4 max-w-2xl"
+          src={`images/octocat.png?v=${timestamp}`}
+          alt="Octocat"
+        />
+      </div>
+
+      <section class="flex w-full flex-wrap my-4">
+        <h1 class="w-full text-center">Hello.</h1>
+        <!-- email, github, linkedin, instagram, bluesky, threads -->
+        <div class="flex flex-wrap justify-center w-full">
+          <Social
+            link="https://github.com/alexisabril"
+            icon="/icons/github.svg"
+          />
+          <Social
+            link="https://bsky.app/profile/alexisabril.com"
+            tag="@alexisabril.com"
+            icon="/icons/bluesky.svg"
+          />
+          <Social
+            link="https://www.linkedin.com/in/alexis-abril"
+            tag="alexisabril"
+            icon="/icons/linkedin.svg"
+          />
+          <Social
+            link="https://www.instagram.com/alexisabril"
+            tag="@alexisabril"
+            icon="/icons/instagram.svg"
+          />
+          <Social
+            link="https://www.threads.net/@alexisabril"
+            tag="@alexisabril"
+            icon="/icons/threads.svg"
+          />
+          <Social
+            link="mailto:me@alexisabril.com"
+            tag="me@alexisabril.com"
+            icon="/icons/email.svg"
+          />
+        </div>
+      </section>
+
+      <section class="flex w-full flex-wrap my-4">
+        <h2 class="w-full">Something fun with AI.</h2>
+
+        <i>
+          The following summary is the result of asking OpenAI to summarize
+          recent technical trends against my current LinkedIn profile. A little
+          bit of an experiment toying with recent AI models. The following was
+          generated on {format(new Date(), 'LLL d, y')} with {model}.
+        </i>
+
+        <div class="mb-20 mt-5">
+          <AISummary />
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
