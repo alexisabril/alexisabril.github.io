@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && cp -R dist/* .",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "profile": "node src/profile.js",
     "summary": "node -r dotenv/config src/summary.js"
