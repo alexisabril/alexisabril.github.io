@@ -11,6 +11,7 @@ jobs:
 
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
@@ -26,9 +27,30 @@ jobs:
         env:
           ACTIVITY_TOKEN: ${{ secrets.ACTIVITY_TOKEN }}
 
-      - name: Commit and push if changed
+      - name: Create PR if data changed
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          if git diff --quiet data/activity.json; then
+            echo "No changes to activity data"
+            exit 0
+          fi
+
+          BRANCH="chore/update-activity-data"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
           git add data/activity.json
-          git diff --staged --quiet || (git commit -m "chore: update GitHub activity data" && git push)
+          git commit -m "chore: update GitHub activity data"
+          git push -f origin "$BRANCH"
+
+          EXISTING_PR=$(gh pr list --head "$BRANCH" --json number --jq '.[0].number')
+          if [ -z "$EXISTING_PR" ]; then
+            gh pr create \
+              --title "chore: update GitHub activity data" \
+              --body "Automated daily update of GitHub activity data for the particle system." \
+              --head "$BRANCH"
+            EXISTING_PR=$(gh pr list --head "$BRANCH" --json number --jq '.[0].number')
+          fi
+
+          gh pr merge "$EXISTING_PR" --auto --squash
