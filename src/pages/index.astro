@@ -1,10 +1,8 @@
 ---
-import { format } from 'date-fns'
-
+import '../styles/global.css'
 import Social from '../components/social.astro'
-import { Content as AISummary } from '../../data/summary.md'
+import Particles from '../components/particles.astro'
 
-const model = import.meta.env.OPENAI_MODEL
 const timestamp = new Date().toISOString()
 ---
 
@@ -42,7 +40,9 @@ const timestamp = new Date().toISOString()
     <link rel="canonical" href="https://alexisabril.com" />
     <link rel="icon" href={`/favicon.svg?v=${timestamp}`} />
 
-    <style is:global lang="less">
+    <style is:global>
+      @reference 'tailwindcss';
+
       body {
         background-color: #e0e1dd;
         color: #415a77;
@@ -70,6 +70,7 @@ const timestamp = new Date().toISOString()
   </head>
 
   <body class="flex justify-center">
+    <Particles />
     <div class="flex flex-wrap w-5/6">
       <div class="flex w-full justify-center">
         <img
@@ -115,20 +116,6 @@ const timestamp = new Date().toISOString()
         </div>
       </section>
 
-      <section class="flex w-full flex-wrap my-4">
-        <h2 class="w-full">Something fun with AI.</h2>
-
-        <i>
-          The following summary is the result of asking OpenAI to summarize
-          recent technical trends against my current LinkedIn profile. A little
-          bit of an experiment toying with recent AI models. The following was
-          generated on {format(new Date(), 'LLL d, y')} with {model}.
-        </i>
-
-        <div class="mb-20 mt-5">
-          <AISummary />
-        </div>
-      </section>
     </div>
   </body>
 </html>
