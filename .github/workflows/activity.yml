@@ -24,7 +24,7 @@ jobs:
       - name: Fetch GitHub activity
         run: npm run activity
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTIVITY_TOKEN }}
+          ACTIVITY_TOKEN: ${{ secrets.ACTIVITY_TOKEN }}
 
       - name: Commit and push if changed
         run: |
