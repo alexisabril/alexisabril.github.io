@@ -1,12 +1,8 @@
 ---
-import { format } from 'date-fns'
-
 import '../styles/global.css'
 import Social from '../components/social.astro'
 import Particles from '../components/particles.astro'
-import { Content as AISummary } from '../../data/summary.md'
 
-const model = import.meta.env.OPENAI_MODEL
 const timestamp = new Date().toISOString()
 ---
 
@@ -120,20 +116,6 @@ const timestamp = new Date().toISOString()
         </div>
       </section>
 
-      <section class="flex w-full flex-wrap my-4">
-        <h2 class="w-full">Something fun with AI.</h2>
-
-        <i>
-          The following summary is the result of asking OpenAI to summarize
-          recent technical trends against my current LinkedIn profile. A little
-          bit of an experiment toying with recent AI models. The following was
-          generated on {format(new Date(), 'LLL d, y')} with {model}.
-        </i>
-
-        <div class="mb-20 mt-5">
-          <AISummary />
-        </div>
-      </section>
     </div>
   </body>
 </html>

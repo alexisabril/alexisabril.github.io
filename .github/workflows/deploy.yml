@@ -9,8 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
 
     environment:
       name: github-pages
