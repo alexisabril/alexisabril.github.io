@@ -1,6 +1,7 @@
 ---
 import { format } from 'date-fns'
 
+import '../styles/global.css'
 import Social from '../components/social.astro'
 import Particles from '../components/particles.astro'
 import { Content as AISummary } from '../../data/summary.md'
@@ -43,7 +44,9 @@ const timestamp = new Date().toISOString()
     <link rel="canonical" href="https://alexisabril.com" />
     <link rel="icon" href={`/favicon.svg?v=${timestamp}`} />
 
-    <style is:global lang="less">
+    <style is:global>
+      @reference 'tailwindcss';
+
       body {
         background-color: #e0e1dd;
         color: #415a77;
