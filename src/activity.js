@@ -1,10 +1,10 @@
 import fs from 'fs/promises'
 
 const USERNAME = 'alexisabril'
-const TOKEN = process.env.GITHUB_TOKEN
+const TOKEN = process.env.ACTIVITY_TOKEN
 
 if (!TOKEN) {
-  console.error('GITHUB_TOKEN is required')
+  console.error('ACTIVITY_TOKEN is required')
   process.exit(1)
 }
 
