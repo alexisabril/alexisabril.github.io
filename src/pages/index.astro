@@ -2,6 +2,7 @@
 import { format } from 'date-fns'
 
 import Social from '../components/social.astro'
+import Particles from '../components/particles.astro'
 import { Content as AISummary } from '../../data/summary.md'
 
 const model = import.meta.env.OPENAI_MODEL
@@ -70,6 +71,7 @@ const timestamp = new Date().toISOString()
   </head>
 
   <body class="flex justify-center">
+    <Particles />
     <div class="flex flex-wrap w-5/6">
       <div class="flex w-full justify-center">
         <img

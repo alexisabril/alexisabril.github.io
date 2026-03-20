@@ -1,0 +1,202 @@
+---
+/**
+ * Interactive particle system colored by GitHub activity.
+ * Fetches public events and maps event types to colors.
+ * Particles drift and gently repel from the mouse cursor.
+ */
+interface Props {
+  username?: string
+  particleCount?: number
+}
+
+const { username = 'alexisabril', particleCount = 120 } = Astro.props
+---
+
+<canvas id="particle-canvas" data-username={username} data-count={particleCount}></canvas>
+
+<style>
+  #particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  const EVENT_COLORS: Record<string, string> = {
+    PushEvent: '#1b9e77',
+    PullRequestEvent: '#7570b3',
+    PullRequestReviewEvent: '#7570b3',
+    IssuesEvent: '#e7298a',
+    IssueCommentEvent: '#e7298a',
+    CreateEvent: '#66a61e',
+    DeleteEvent: '#d95f02',
+    WatchEvent: '#e6ab02',
+    ForkEvent: '#e6ab02',
+    ReleaseEvent: '#1b9e77'
+  }
+
+  const DEFAULT_COLOR = '#778da9'
+
+  interface Particle {
+    x: number
+    y: number
+    vx: number
+    vy: number
+    radius: number
+    color: string
+    alpha: number
+    baseAlpha: number
+  }
+
+  const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement
+  const ctx = canvas.getContext('2d')!
+  const username = canvas.dataset.username || 'alexisabril'
+  const TARGET_COUNT = parseInt(canvas.dataset.count || '120', 10)
+
+  let width = (canvas.width = window.innerWidth)
+  let height = (canvas.height = window.innerHeight)
+  let mouseX = -9999
+  let mouseY = -9999
+  let particles: Particle[] = []
+  let eventColors: string[] = []
+
+  function resize() {
+    width = canvas.width = window.innerWidth
+    height = canvas.height = window.innerHeight
+  }
+
+  window.addEventListener('resize', resize)
+
+  // Track mouse on the document so particles react even though canvas has pointer-events: none
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX
+    mouseY = e.clientY
+  })
+
+  document.addEventListener('mouseleave', () => {
+    mouseX = -9999
+    mouseY = -9999
+  })
+
+  async function fetchEventColors(): Promise<string[]> {
+    try {
+      const res = await fetch(
+        `https://api.github.com/users/${username}/events/public?per_page=100`
+      )
+      if (!res.ok) return []
+      const events: { type: string }[] = await res.json()
+      return events.map((e) => EVENT_COLORS[e.type] || DEFAULT_COLOR)
+    } catch {
+      return []
+    }
+  }
+
+  function createParticle(color: string): Particle {
+    const angle = Math.random() * Math.PI * 2
+    const speed = 0.15 + Math.random() * 0.35
+    return {
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      radius: 1.5 + Math.random() * 2.5,
+      color,
+      alpha: 0,
+      baseAlpha: 0.25 + Math.random() * 0.45
+    }
+  }
+
+  function initParticles() {
+    particles = []
+    for (let i = 0; i < TARGET_COUNT; i++) {
+      const color =
+        eventColors.length > 0
+          ? eventColors[i % eventColors.length]
+          : DEFAULT_COLOR
+      particles.push(createParticle(color))
+    }
+  }
+
+  function hexToRgb(hex: string): [number, number, number] {
+    const v = parseInt(hex.slice(1), 16)
+    return [(v >> 16) & 255, (v >> 8) & 255, v & 255]
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height)
+
+    const MOUSE_RADIUS = 140
+    const MOUSE_FORCE = 1.8
+    const DAMPING = 0.995
+    const CONNECT_DIST = 100
+
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i]
+
+      // Fade in
+      if (p.alpha < p.baseAlpha) {
+        p.alpha = Math.min(p.alpha + 0.005, p.baseAlpha)
+      }
+
+      // Mouse repulsion
+      const dx = p.x - mouseX
+      const dy = p.y - mouseY
+      const dist = Math.sqrt(dx * dx + dy * dy)
+      if (dist < MOUSE_RADIUS && dist > 0) {
+        const force = (1 - dist / MOUSE_RADIUS) * MOUSE_FORCE
+        p.vx += (dx / dist) * force
+        p.vy += (dy / dist) * force
+      }
+
+      p.vx *= DAMPING
+      p.vy *= DAMPING
+      p.x += p.vx
+      p.y += p.vy
+
+      // Wrap edges
+      if (p.x < -10) p.x = width + 10
+      if (p.x > width + 10) p.x = -10
+      if (p.y < -10) p.y = height + 10
+      if (p.y > height + 10) p.y = -10
+
+      // Draw particle
+      const [r, g, b] = hexToRgb(p.color)
+      ctx.beginPath()
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
+      ctx.fillStyle = `rgba(${r},${g},${b},${p.alpha})`
+      ctx.fill()
+
+      // Draw connections to nearby same-colored particles
+      for (let j = i + 1; j < particles.length; j++) {
+        const q = particles[j]
+        if (q.color !== p.color) continue
+        const cx = p.x - q.x
+        const cy = p.y - q.y
+        const cd = Math.sqrt(cx * cx + cy * cy)
+        if (cd < CONNECT_DIST) {
+          const lineAlpha = (1 - cd / CONNECT_DIST) * Math.min(p.alpha, q.alpha) * 0.5
+          ctx.beginPath()
+          ctx.moveTo(p.x, p.y)
+          ctx.lineTo(q.x, q.y)
+          ctx.strokeStyle = `rgba(${r},${g},${b},${lineAlpha})`
+          ctx.lineWidth = 0.5
+          ctx.stroke()
+        }
+      }
+    }
+
+    requestAnimationFrame(draw)
+  }
+
+  // Boot
+  fetchEventColors().then((colors) => {
+    eventColors = colors
+    initParticles()
+    draw()
+  })
+</script>
