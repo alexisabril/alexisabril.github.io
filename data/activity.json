@@ -1,36 +1,5 @@
 {
-  "fetchedAt": "2026-05-01T06:53:03.730Z",
+  "fetchedAt": "2026-05-04T06:59:39.433Z",
   "username": "alexisabril",
-  "events": [
-    {
-      "type": "DeleteEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-04-02T17:22:30Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-04-02T17:22:29Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-04-02T17:22:22Z"
-    },
-    {
-      "type": "DeleteEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-04-02T17:22:12Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-04-02T17:22:10Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-04-02T17:21:57Z"
-    }
-  ]
+  "events": []
 }
