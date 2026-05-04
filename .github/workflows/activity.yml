@@ -53,4 +53,4 @@ jobs:
             EXISTING_PR=$(gh pr list --head "$BRANCH" --json number --jq '.[0].number')
           fi
 
-          gh pr merge "$EXISTING_PR" --auto --squash
+          gh pr merge "$EXISTING_PR" --squash
