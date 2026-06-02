@@ -1,7 +1,17 @@
 {
-  "fetchedAt": "2026-06-01T07:41:44.127Z",
+  "fetchedAt": "2026-06-02T07:35:31.534Z",
   "username": "alexisabril",
   "events": [
+    {
+      "type": "PushEvent",
+      "repo": "github-technology-partners/copilot-cloud-agent-partner-guide",
+      "createdAt": "2026-06-01T22:54:30Z"
+    },
+    {
+      "type": "PublicEvent",
+      "repo": "github-technology-partners/copilot-cloud-agent-partner-guide",
+      "createdAt": "2026-05-28T15:50:42Z"
+    },
     {
       "type": "DeleteEvent",
       "repo": "alexisabril/alexisabril.github.io",
