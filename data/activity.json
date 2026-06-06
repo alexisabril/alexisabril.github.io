@@ -1,111 +1,16 @@
 {
-  "fetchedAt": "2026-05-08T06:34:46.853Z",
+  "fetchedAt": "2026-06-05T07:26:35.348Z",
   "username": "alexisabril",
   "events": [
     {
-      "type": "DeleteEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T16:49:55Z"
-    },
-    {
       "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T16:49:54Z"
+      "repo": "github-technology-partners/copilot-cloud-agent-partner-guide",
+      "createdAt": "2026-06-01T22:54:30Z"
     },
     {
-      "type": "PullRequestEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T16:49:53Z"
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T16:49:24Z"
-    },
-    {
-      "type": "CreateEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T16:49:23Z"
-    },
-    {
-      "type": "DeleteEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T16:36:38Z"
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T16:29:46Z"
-    },
-    {
-      "type": "PullRequestEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:42:02Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:43:29Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:42:01Z"
-    },
-    {
-      "type": "DeleteEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:39:49Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:39:18Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:37:40Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:36:39Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:28:32Z"
-    },
-    {
-      "type": "DeleteEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:27:40Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:27:39Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:26:58Z"
-    },
-    {
-      "type": "DeleteEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:26:40Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:26:39Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "alexisabril/alexisabril.github.io",
-      "createdAt": "2026-05-04T15:26:30Z"
+      "type": "PublicEvent",
+      "repo": "github-technology-partners/copilot-cloud-agent-partner-guide",
+      "createdAt": "2026-05-28T15:50:42Z"
     }
   ]
 }
