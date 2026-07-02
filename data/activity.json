@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-01T07:27:16.059Z",
+  "fetchedAt": "2026-07-02T07:05:33.113Z",
   "username": "alexisabril",
   "events": [
     {
@@ -56,16 +56,6 @@
       "type": "CreateEvent",
       "repo": "alexisabril/alexisabril.github.io",
       "createdAt": "2026-06-06T03:57:14Z"
-    },
-    {
-      "type": "PushEvent",
-      "repo": "github-technology-partners/copilot-cloud-agent-partner-guide",
-      "createdAt": "2026-06-01T22:54:30Z"
-    },
-    {
-      "type": "PublicEvent",
-      "repo": "github-technology-partners/copilot-cloud-agent-partner-guide",
-      "createdAt": "2026-05-28T15:50:42Z"
     }
   ]
 }
